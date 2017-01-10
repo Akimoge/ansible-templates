@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+  - name: nginx install
+    pacman: name=nginx state=latest
+    notify:
+    - restart nginx
+  - name: zapnutie nginx pri boote
+    service: name=nginx state=started enabled=yes
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
