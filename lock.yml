@@ -1,0 +1,6 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+  - name: lock
+    command: sh /home/student/.config/lock
